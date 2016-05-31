@@ -5,15 +5,17 @@ class Component {
       value2: 1
     }
   }
-  handleClick(value, value2){
-    this.setState({value: value, value2: value2})
+  updateFib(){
+    const {value, value2} = this.state
+    let newValue = value2
+    let newValue2 = value + value2
+    this.setState({value: newValue, value2: newValue2})
   }
   render(){
-    let {value, value2} = this.state
-    let handleClick = this.handleClick.bind(this)
+    let handleClick = this.updateFib.bind(this)
     return <div>
       {value2}
-      <button onClick={ e => handleClick(value2, value + value2)}> fib </button>
+      <button onClick={ e => handleClick()}> fib </button>
     </div>
   }
 }
